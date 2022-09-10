@@ -1,0 +1,9 @@
+query AllFilms($first: Int) {
+  allFilms(first: $first) {
+    edges {
+      node {
+        id
+      }
+    }
+  }
+}

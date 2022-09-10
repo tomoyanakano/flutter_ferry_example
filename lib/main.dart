@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ferry_sample/utils/hive_service.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-void main() {
+void main() async {
+  final container = ProviderContainer();
+  final hiveService = container.read(hiveServiceProvider);
+  await hiveService.init();
   runApp(const MyApp());
 }
 
