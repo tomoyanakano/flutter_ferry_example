@@ -13,9 +13,6 @@ Serializer<GAllFilmsData_allFilms> _$gAllFilmsDataAllFilmsSerializer =
 Serializer<GAllFilmsData_allFilms_films>
     _$gAllFilmsDataAllFilmsFilmsSerializer =
     new _$GAllFilmsData_allFilms_filmsSerializer();
-Serializer<GAllFilmsData_allFilms_pageInfo>
-    _$gAllFilmsDataAllFilmsPageInfoSerializer =
-    new _$GAllFilmsData_allFilms_pageInfoSerializer();
 
 class _$GAllFilmsDataSerializer implements StructuredSerializer<GAllFilmsData> {
   @override
@@ -88,9 +85,6 @@ class _$GAllFilmsData_allFilmsSerializer
       '__typename',
       serializers.serialize(object.G__typename,
           specifiedType: const FullType(String)),
-      'pageInfo',
-      serializers.serialize(object.pageInfo,
-          specifiedType: const FullType(GAllFilmsData_allFilms_pageInfo)),
     ];
     Object? value;
     value = object.films;
@@ -125,12 +119,6 @@ class _$GAllFilmsData_allFilmsSerializer
               specifiedType: const FullType(BuiltList, const [
                 const FullType(GAllFilmsData_allFilms_films)
               ]))! as BuiltList<Object?>);
-          break;
-        case 'pageInfo':
-          result.pageInfo.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(GAllFilmsData_allFilms_pageInfo))!
-              as GAllFilmsData_allFilms_pageInfo);
           break;
       }
     }
@@ -236,70 +224,6 @@ class _$GAllFilmsData_allFilms_filmsSerializer
           break;
         case 'releaseDate':
           result.releaseDate = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$GAllFilmsData_allFilms_pageInfoSerializer
-    implements StructuredSerializer<GAllFilmsData_allFilms_pageInfo> {
-  @override
-  final Iterable<Type> types = const [
-    GAllFilmsData_allFilms_pageInfo,
-    _$GAllFilmsData_allFilms_pageInfo
-  ];
-  @override
-  final String wireName = 'GAllFilmsData_allFilms_pageInfo';
-
-  @override
-  Iterable<Object?> serialize(
-      Serializers serializers, GAllFilmsData_allFilms_pageInfo object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      '__typename',
-      serializers.serialize(object.G__typename,
-          specifiedType: const FullType(String)),
-      'hasNextPage',
-      serializers.serialize(object.hasNextPage,
-          specifiedType: const FullType(bool)),
-    ];
-    Object? value;
-    value = object.endCursor;
-    if (value != null) {
-      result
-        ..add('endCursor')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
-    return result;
-  }
-
-  @override
-  GAllFilmsData_allFilms_pageInfo deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = new GAllFilmsData_allFilms_pageInfoBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case '__typename':
-          result.G__typename = serializers.deserialize(value,
-              specifiedType: const FullType(String))! as String;
-          break;
-        case 'hasNextPage':
-          result.hasNextPage = serializers.deserialize(value,
-              specifiedType: const FullType(bool))! as bool;
-          break;
-        case 'endCursor':
-          result.endCursor = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
       }
@@ -423,20 +347,15 @@ class _$GAllFilmsData_allFilms extends GAllFilmsData_allFilms {
   final String G__typename;
   @override
   final BuiltList<GAllFilmsData_allFilms_films>? films;
-  @override
-  final GAllFilmsData_allFilms_pageInfo pageInfo;
 
   factory _$GAllFilmsData_allFilms(
           [void Function(GAllFilmsData_allFilmsBuilder)? updates]) =>
       (new GAllFilmsData_allFilmsBuilder()..update(updates))._build();
 
-  _$GAllFilmsData_allFilms._(
-      {required this.G__typename, this.films, required this.pageInfo})
+  _$GAllFilmsData_allFilms._({required this.G__typename, this.films})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
         G__typename, r'GAllFilmsData_allFilms', 'G__typename');
-    BuiltValueNullFieldError.checkNotNull(
-        pageInfo, r'GAllFilmsData_allFilms', 'pageInfo');
   }
 
   @override
@@ -453,22 +372,19 @@ class _$GAllFilmsData_allFilms extends GAllFilmsData_allFilms {
     if (identical(other, this)) return true;
     return other is GAllFilmsData_allFilms &&
         G__typename == other.G__typename &&
-        films == other.films &&
-        pageInfo == other.pageInfo;
+        films == other.films;
   }
 
   @override
   int get hashCode {
-    return $jf($jc(
-        $jc($jc(0, G__typename.hashCode), films.hashCode), pageInfo.hashCode));
+    return $jf($jc($jc(0, G__typename.hashCode), films.hashCode));
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'GAllFilmsData_allFilms')
           ..add('G__typename', G__typename)
-          ..add('films', films)
-          ..add('pageInfo', pageInfo))
+          ..add('films', films))
         .toString();
   }
 }
@@ -487,12 +403,6 @@ class GAllFilmsData_allFilmsBuilder
   set films(ListBuilder<GAllFilmsData_allFilms_films>? films) =>
       _$this._films = films;
 
-  GAllFilmsData_allFilms_pageInfoBuilder? _pageInfo;
-  GAllFilmsData_allFilms_pageInfoBuilder get pageInfo =>
-      _$this._pageInfo ??= new GAllFilmsData_allFilms_pageInfoBuilder();
-  set pageInfo(GAllFilmsData_allFilms_pageInfoBuilder? pageInfo) =>
-      _$this._pageInfo = pageInfo;
-
   GAllFilmsData_allFilmsBuilder() {
     GAllFilmsData_allFilms._initializeBuilder(this);
   }
@@ -502,7 +412,6 @@ class GAllFilmsData_allFilmsBuilder
     if ($v != null) {
       _G__typename = $v.G__typename;
       _films = $v.films?.toBuilder();
-      _pageInfo = $v.pageInfo.toBuilder();
       _$v = null;
     }
     return this;
@@ -529,15 +438,12 @@ class GAllFilmsData_allFilmsBuilder
           new _$GAllFilmsData_allFilms._(
               G__typename: BuiltValueNullFieldError.checkNotNull(
                   G__typename, r'GAllFilmsData_allFilms', 'G__typename'),
-              films: _films?.build(),
-              pageInfo: pageInfo.build());
+              films: _films?.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'films';
         _films?.build();
-        _$failedField = 'pageInfo';
-        pageInfo.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             r'GAllFilmsData_allFilms', _$failedField, e.toString());
@@ -713,122 +619,6 @@ class GAllFilmsData_allFilms_filmsBuilder
             created: created,
             title: title,
             releaseDate: releaseDate);
-    replace(_$result);
-    return _$result;
-  }
-}
-
-class _$GAllFilmsData_allFilms_pageInfo
-    extends GAllFilmsData_allFilms_pageInfo {
-  @override
-  final String G__typename;
-  @override
-  final bool hasNextPage;
-  @override
-  final String? endCursor;
-
-  factory _$GAllFilmsData_allFilms_pageInfo(
-          [void Function(GAllFilmsData_allFilms_pageInfoBuilder)? updates]) =>
-      (new GAllFilmsData_allFilms_pageInfoBuilder()..update(updates))._build();
-
-  _$GAllFilmsData_allFilms_pageInfo._(
-      {required this.G__typename, required this.hasNextPage, this.endCursor})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        G__typename, r'GAllFilmsData_allFilms_pageInfo', 'G__typename');
-    BuiltValueNullFieldError.checkNotNull(
-        hasNextPage, r'GAllFilmsData_allFilms_pageInfo', 'hasNextPage');
-  }
-
-  @override
-  GAllFilmsData_allFilms_pageInfo rebuild(
-          void Function(GAllFilmsData_allFilms_pageInfoBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  GAllFilmsData_allFilms_pageInfoBuilder toBuilder() =>
-      new GAllFilmsData_allFilms_pageInfoBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is GAllFilmsData_allFilms_pageInfo &&
-        G__typename == other.G__typename &&
-        hasNextPage == other.hasNextPage &&
-        endCursor == other.endCursor;
-  }
-
-  @override
-  int get hashCode {
-    return $jf($jc($jc($jc(0, G__typename.hashCode), hasNextPage.hashCode),
-        endCursor.hashCode));
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'GAllFilmsData_allFilms_pageInfo')
-          ..add('G__typename', G__typename)
-          ..add('hasNextPage', hasNextPage)
-          ..add('endCursor', endCursor))
-        .toString();
-  }
-}
-
-class GAllFilmsData_allFilms_pageInfoBuilder
-    implements
-        Builder<GAllFilmsData_allFilms_pageInfo,
-            GAllFilmsData_allFilms_pageInfoBuilder> {
-  _$GAllFilmsData_allFilms_pageInfo? _$v;
-
-  String? _G__typename;
-  String? get G__typename => _$this._G__typename;
-  set G__typename(String? G__typename) => _$this._G__typename = G__typename;
-
-  bool? _hasNextPage;
-  bool? get hasNextPage => _$this._hasNextPage;
-  set hasNextPage(bool? hasNextPage) => _$this._hasNextPage = hasNextPage;
-
-  String? _endCursor;
-  String? get endCursor => _$this._endCursor;
-  set endCursor(String? endCursor) => _$this._endCursor = endCursor;
-
-  GAllFilmsData_allFilms_pageInfoBuilder() {
-    GAllFilmsData_allFilms_pageInfo._initializeBuilder(this);
-  }
-
-  GAllFilmsData_allFilms_pageInfoBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _G__typename = $v.G__typename;
-      _hasNextPage = $v.hasNextPage;
-      _endCursor = $v.endCursor;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(GAllFilmsData_allFilms_pageInfo other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$GAllFilmsData_allFilms_pageInfo;
-  }
-
-  @override
-  void update(void Function(GAllFilmsData_allFilms_pageInfoBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  GAllFilmsData_allFilms_pageInfo build() => _build();
-
-  _$GAllFilmsData_allFilms_pageInfo _build() {
-    final _$result = _$v ??
-        new _$GAllFilmsData_allFilms_pageInfo._(
-            G__typename: BuiltValueNullFieldError.checkNotNull(
-                G__typename, r'GAllFilmsData_allFilms_pageInfo', 'G__typename'),
-            hasNextPage: BuiltValueNullFieldError.checkNotNull(
-                hasNextPage, r'GAllFilmsData_allFilms_pageInfo', 'hasNextPage'),
-            endCursor: endCursor);
     replace(_$result);
     return _$result;
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ferry_sample/feature/film/film_list_page/film_list_page.dart';
+import 'package:flutter_ferry_sample/feature/person/people_page/people_page.dart';
 import 'package:flutter_ferry_sample/utils/ferry_service.dart';
 import 'package:flutter_ferry_sample/utils/hive_service.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -46,9 +47,9 @@ class Home extends HookConsumerWidget {
   const Home({Key? key}) : super(key: key);
 
   final List<Widget> pages = const [
-    Center(child: Text('movie'),),
-    Center(child: Text('movie'),),
     FilmListPage(),
+    PeoplePage(),
+    Center(child: Text('movie'),),
     Center(child: Text('movie'),),
   ];
 
@@ -65,12 +66,12 @@ class Home extends HookConsumerWidget {
           NavigationDestination(
             icon: Icon(Icons.movie_outlined),
             selectedIcon: Icon(Icons.movie),
-            label: 'movie',
+            label: 'films',
           ),
           NavigationDestination(
-            icon: Icon(Icons.movie_outlined),
-            selectedIcon: Icon(Icons.movie),
-            label: 'movie',
+            icon: Icon(Icons.people_outlined),
+            selectedIcon: Icon(Icons.people),
+            label: 'people',
           ),
           NavigationDestination(
             icon: Icon(Icons.movie_outlined),

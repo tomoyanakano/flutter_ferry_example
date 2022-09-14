@@ -42,7 +42,6 @@ abstract class GAllFilmsData_allFilms
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
   BuiltList<GAllFilmsData_allFilms_films>? get films;
-  GAllFilmsData_allFilms_pageInfo get pageInfo;
   static Serializer<GAllFilmsData_allFilms> get serializer =>
       _$gAllFilmsDataAllFilmsSerializer;
   Map<String, dynamic> toJson() =>
@@ -79,30 +78,4 @@ abstract class GAllFilmsData_allFilms_films
   static GAllFilmsData_allFilms_films? fromJson(Map<String, dynamic> json) =>
       _i1.serializers
           .deserializeWith(GAllFilmsData_allFilms_films.serializer, json);
-}
-
-abstract class GAllFilmsData_allFilms_pageInfo
-    implements
-        Built<GAllFilmsData_allFilms_pageInfo,
-            GAllFilmsData_allFilms_pageInfoBuilder> {
-  GAllFilmsData_allFilms_pageInfo._();
-
-  factory GAllFilmsData_allFilms_pageInfo(
-          [Function(GAllFilmsData_allFilms_pageInfoBuilder b) updates]) =
-      _$GAllFilmsData_allFilms_pageInfo;
-
-  static void _initializeBuilder(GAllFilmsData_allFilms_pageInfoBuilder b) =>
-      b..G__typename = 'PageInfo';
-  @BuiltValueField(wireName: '__typename')
-  String get G__typename;
-  bool get hasNextPage;
-  String? get endCursor;
-  static Serializer<GAllFilmsData_allFilms_pageInfo> get serializer =>
-      _$gAllFilmsDataAllFilmsPageInfoSerializer;
-  Map<String, dynamic> toJson() => (_i1.serializers
-          .serializeWith(GAllFilmsData_allFilms_pageInfo.serializer, this)
-      as Map<String, dynamic>);
-  static GAllFilmsData_allFilms_pageInfo? fromJson(Map<String, dynamic> json) =>
-      _i1.serializers
-          .deserializeWith(GAllFilmsData_allFilms_pageInfo.serializer, json);
 }

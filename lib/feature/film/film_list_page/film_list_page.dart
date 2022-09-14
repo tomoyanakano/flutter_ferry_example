@@ -1,22 +1,16 @@
-import 'package:ferry/ferry.dart';
-import 'package:ferry_flutter/ferry_flutter.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ferry_sample/feature/film/film_list_page/film_list_provider.dart';
-import 'package:flutter_ferry_sample/feature/film/graphql/__generated__/all_films.data.gql.dart';
-import 'package:flutter_ferry_sample/feature/film/graphql/__generated__/all_films.var.gql.dart';
-import 'package:flutter_ferry_sample/utils/ferry_service.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../components/error.dart';
 import '../../../components/loading.dart';
 import '../film_model.dart';
-import '../graphql/__generated__/all_films.req.gql.dart';
 
 
 /// Fetch Film list from GraphQL API
 /// 
-/// Using Operation Widget from pub:ferry_flutter
+/// Implement with Repository pattern
+/// Not using Operation Widget and Generated Graphql Result Models
 class FilmListPage extends ConsumerWidget {
   const FilmListPage({Key? key}) : super(key: key);
 
@@ -28,37 +22,12 @@ class FilmListPage extends ConsumerWidget {
       error: (error, stackTrace) => ErrorMessage(error, stackTrace: stackTrace), 
       data: (films) {
         return ListView.builder(
-          padding: const EdgeInsets.symmetric(vertical: 20),
+          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
           itemCount: films.length,
           itemBuilder: (context, index) => _Film(films[index]),
         );
       },
     );
-    // return Operation(
-    //   client: client,
-    //   operationRequest: GAllFilmsReq((b) => b..vars.first = 20),
-    //   builder: (
-    //     BuildContext context, 
-    //     OperationResponse<GAllFilmsData, GAllFilmsVars>? response, 
-    //     Object? error
-    //   ) {
-    //     if (response!.hasErrors) {
-    //       return ErrorMessage(response.graphqlErrors!.first);
-    //     }
-        
-    //     if (response.loading) {
-    //       return const Loading();
-    //     }
-        
-    //     final data = response.data;
-    //     return ListView.builder(
-    //       itemCount: data!.allFilms!.films!.length,
-    //       itemBuilder: (context, index) {
-    //         return ListTile(title: Text(data.allFilms!.films![index].id));
-    //       },
-    //     );
-    //   },
-    // );
   }
 }
 
