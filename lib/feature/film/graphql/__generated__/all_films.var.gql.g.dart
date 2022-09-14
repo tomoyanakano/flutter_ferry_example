@@ -26,6 +26,13 @@ class _$GAllFilmsVarsSerializer implements StructuredSerializer<GAllFilmsVars> {
         ..add('first')
         ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
+    value = object.after;
+    if (value != null) {
+      result
+        ..add('after')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
     return result;
   }
 
@@ -45,6 +52,10 @@ class _$GAllFilmsVarsSerializer implements StructuredSerializer<GAllFilmsVars> {
           result.first = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int?;
           break;
+        case 'after':
+          result.after = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
       }
     }
 
@@ -55,11 +66,13 @@ class _$GAllFilmsVarsSerializer implements StructuredSerializer<GAllFilmsVars> {
 class _$GAllFilmsVars extends GAllFilmsVars {
   @override
   final int? first;
+  @override
+  final String? after;
 
   factory _$GAllFilmsVars([void Function(GAllFilmsVarsBuilder)? updates]) =>
       (new GAllFilmsVarsBuilder()..update(updates))._build();
 
-  _$GAllFilmsVars._({this.first}) : super._();
+  _$GAllFilmsVars._({this.first, this.after}) : super._();
 
   @override
   GAllFilmsVars rebuild(void Function(GAllFilmsVarsBuilder) updates) =>
@@ -71,17 +84,21 @@ class _$GAllFilmsVars extends GAllFilmsVars {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is GAllFilmsVars && first == other.first;
+    return other is GAllFilmsVars &&
+        first == other.first &&
+        after == other.after;
   }
 
   @override
   int get hashCode {
-    return $jf($jc(0, first.hashCode));
+    return $jf($jc($jc(0, first.hashCode), after.hashCode));
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'GAllFilmsVars')..add('first', first))
+    return (newBuiltValueToStringHelper(r'GAllFilmsVars')
+          ..add('first', first)
+          ..add('after', after))
         .toString();
   }
 }
@@ -94,12 +111,17 @@ class GAllFilmsVarsBuilder
   int? get first => _$this._first;
   set first(int? first) => _$this._first = first;
 
+  String? _after;
+  String? get after => _$this._after;
+  set after(String? after) => _$this._after = after;
+
   GAllFilmsVarsBuilder();
 
   GAllFilmsVarsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _first = $v.first;
+      _after = $v.after;
       _$v = null;
     }
     return this;
@@ -120,7 +142,7 @@ class GAllFilmsVarsBuilder
   GAllFilmsVars build() => _build();
 
   _$GAllFilmsVars _build() {
-    final _$result = _$v ?? new _$GAllFilmsVars._(first: first);
+    final _$result = _$v ?? new _$GAllFilmsVars._(first: first, after: after);
     replace(_$result);
     return _$result;
   }

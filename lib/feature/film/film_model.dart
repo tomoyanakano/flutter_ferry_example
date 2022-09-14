@@ -9,6 +9,10 @@ part 'film_model.g.dart';
 class FilmModel with _$FilmModel {
   const factory FilmModel({
     required String id,
+    required String director,
+    required String title,
+    @JsonKey(name: 'episodeID') required int episodeId,
+    @JsonKey(name: 'releaseDate') required DateTime releasedAt,
   }) = _FilmModel;
   
   factory FilmModel.fromJson(Map<String, dynamic> json) => _$FilmModelFromJson(json);

@@ -21,6 +21,12 @@ FilmModel _$FilmModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$FilmModel {
   String get id => throw _privateConstructorUsedError;
+  String get director => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
+  @JsonKey(name: 'episodeID')
+  int get episodeId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'releaseDate')
+  DateTime get releasedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -32,7 +38,12 @@ mixin _$FilmModel {
 abstract class $FilmModelCopyWith<$Res> {
   factory $FilmModelCopyWith(FilmModel value, $Res Function(FilmModel) then) =
       _$FilmModelCopyWithImpl<$Res>;
-  $Res call({String id});
+  $Res call(
+      {String id,
+      String director,
+      String title,
+      @JsonKey(name: 'episodeID') int episodeId,
+      @JsonKey(name: 'releaseDate') DateTime releasedAt});
 }
 
 /// @nodoc
@@ -46,12 +57,32 @@ class _$FilmModelCopyWithImpl<$Res> implements $FilmModelCopyWith<$Res> {
   @override
   $Res call({
     Object? id = freezed,
+    Object? director = freezed,
+    Object? title = freezed,
+    Object? episodeId = freezed,
+    Object? releasedAt = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
+      director: director == freezed
+          ? _value.director
+          : director // ignore: cast_nullable_to_non_nullable
+              as String,
+      title: title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      episodeId: episodeId == freezed
+          ? _value.episodeId
+          : episodeId // ignore: cast_nullable_to_non_nullable
+              as int,
+      releasedAt: releasedAt == freezed
+          ? _value.releasedAt
+          : releasedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
     ));
   }
 }
@@ -62,7 +93,12 @@ abstract class _$$_FilmModelCopyWith<$Res> implements $FilmModelCopyWith<$Res> {
           _$_FilmModel value, $Res Function(_$_FilmModel) then) =
       __$$_FilmModelCopyWithImpl<$Res>;
   @override
-  $Res call({String id});
+  $Res call(
+      {String id,
+      String director,
+      String title,
+      @JsonKey(name: 'episodeID') int episodeId,
+      @JsonKey(name: 'releaseDate') DateTime releasedAt});
 }
 
 /// @nodoc
@@ -78,12 +114,32 @@ class __$$_FilmModelCopyWithImpl<$Res> extends _$FilmModelCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = freezed,
+    Object? director = freezed,
+    Object? title = freezed,
+    Object? episodeId = freezed,
+    Object? releasedAt = freezed,
   }) {
     return _then(_$_FilmModel(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
+      director: director == freezed
+          ? _value.director
+          : director // ignore: cast_nullable_to_non_nullable
+              as String,
+      title: title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      episodeId: episodeId == freezed
+          ? _value.episodeId
+          : episodeId // ignore: cast_nullable_to_non_nullable
+              as int,
+      releasedAt: releasedAt == freezed
+          ? _value.releasedAt
+          : releasedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
     ));
   }
 }
@@ -91,17 +147,32 @@ class __$$_FilmModelCopyWithImpl<$Res> extends _$FilmModelCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_FilmModel with DiagnosticableTreeMixin implements _FilmModel {
-  const _$_FilmModel({required this.id});
+  const _$_FilmModel(
+      {required this.id,
+      required this.director,
+      required this.title,
+      @JsonKey(name: 'episodeID') required this.episodeId,
+      @JsonKey(name: 'releaseDate') required this.releasedAt});
 
   factory _$_FilmModel.fromJson(Map<String, dynamic> json) =>
       _$$_FilmModelFromJson(json);
 
   @override
   final String id;
+  @override
+  final String director;
+  @override
+  final String title;
+  @override
+  @JsonKey(name: 'episodeID')
+  final int episodeId;
+  @override
+  @JsonKey(name: 'releaseDate')
+  final DateTime releasedAt;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'FilmModel(id: $id)';
+    return 'FilmModel(id: $id, director: $director, title: $title, episodeId: $episodeId, releasedAt: $releasedAt)';
   }
 
   @override
@@ -109,7 +180,11 @@ class _$_FilmModel with DiagnosticableTreeMixin implements _FilmModel {
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'FilmModel'))
-      ..add(DiagnosticsProperty('id', id));
+      ..add(DiagnosticsProperty('id', id))
+      ..add(DiagnosticsProperty('director', director))
+      ..add(DiagnosticsProperty('title', title))
+      ..add(DiagnosticsProperty('episodeId', episodeId))
+      ..add(DiagnosticsProperty('releasedAt', releasedAt));
   }
 
   @override
@@ -117,13 +192,23 @@ class _$_FilmModel with DiagnosticableTreeMixin implements _FilmModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_FilmModel &&
-            const DeepCollectionEquality().equals(other.id, id));
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.director, director) &&
+            const DeepCollectionEquality().equals(other.title, title) &&
+            const DeepCollectionEquality().equals(other.episodeId, episodeId) &&
+            const DeepCollectionEquality()
+                .equals(other.releasedAt, releasedAt));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(id));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(director),
+      const DeepCollectionEquality().hash(title),
+      const DeepCollectionEquality().hash(episodeId),
+      const DeepCollectionEquality().hash(releasedAt));
 
   @JsonKey(ignore: true)
   @override
@@ -139,13 +224,29 @@ class _$_FilmModel with DiagnosticableTreeMixin implements _FilmModel {
 }
 
 abstract class _FilmModel implements FilmModel {
-  const factory _FilmModel({required final String id}) = _$_FilmModel;
+  const factory _FilmModel(
+          {required final String id,
+          required final String director,
+          required final String title,
+          @JsonKey(name: 'episodeID') required final int episodeId,
+          @JsonKey(name: 'releaseDate') required final DateTime releasedAt}) =
+      _$_FilmModel;
 
   factory _FilmModel.fromJson(Map<String, dynamic> json) =
       _$_FilmModel.fromJson;
 
   @override
   String get id;
+  @override
+  String get director;
+  @override
+  String get title;
+  @override
+  @JsonKey(name: 'episodeID')
+  int get episodeId;
+  @override
+  @JsonKey(name: 'releaseDate')
+  DateTime get releasedAt;
   @override
   @JsonKey(ignore: true)
   _$$_FilmModelCopyWith<_$_FilmModel> get copyWith =>

@@ -11,7 +11,6 @@ class FilmRepository {
   });
   final FilmRemoteDataSource filmRemoteDataSource;
 
-  /// 
   Stream<List<FilmModel>> filmsStream(int first) {
     final stream = filmRemoteDataSource.filmsStream(first);
     return stream.map((response) {
@@ -22,7 +21,7 @@ class FilmRepository {
       if (response.data == null){
         throw Exception('data was not found');
       }
-      return data!.allFilms!.edges!.map((edge) => FilmModel.fromJson(edge.node!.toJson())).toList();
+      return data!.allFilms!.films!.map((film) => FilmModel.fromJson(film.toJson())).toList();
     });
   } 
 }

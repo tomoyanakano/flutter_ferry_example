@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ferry_sample/feature/film/film_list_page/film_list_page.dart';
+import 'package:flutter_ferry_sample/utils/ferry_service.dart';
 import 'package:flutter_ferry_sample/utils/hive_service.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -6,8 +8,21 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 void main() async {
   final container = ProviderContainer();
   final hiveService = container.read(hiveServiceProvider);
+  final ferryService = container.read(ferryServiceProvider);
+  
+  /// Initialize HiveFlutter
   await hiveService.init();
-  runApp(const MyApp());
+
+  /// Initialize Ferry Client
+  final client = await ferryService.initClient();
+  
+  runApp(ProviderScope(
+    overrides: [
+      /// Override ferryClientProvider with Client generated asynchronously
+      ferryClientProvider.overrideWithValue(client),
+    ],
+    child: const MyApp()
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -20,7 +35,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         useMaterial3: true,
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.indigo,
       ),
       home: const Home(),
     );
@@ -33,7 +48,7 @@ class Home extends HookConsumerWidget {
   final List<Widget> pages = const [
     Center(child: Text('movie'),),
     Center(child: Text('movie'),),
-    Center(child: Text('movie'),),
+    FilmListPage(),
     Center(child: Text('movie'),),
   ];
 

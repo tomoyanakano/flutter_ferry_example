@@ -16,6 +16,7 @@ abstract class GAllFilmsVars
       _$GAllFilmsVars;
 
   int? get first;
+  String? get after;
   static Serializer<GAllFilmsVars> get serializer => _$gAllFilmsVarsSerializer;
   Map<String, dynamic> toJson() =>
       (_i1.serializers.serializeWith(GAllFilmsVars.serializer, this)

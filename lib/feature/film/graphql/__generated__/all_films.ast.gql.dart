@@ -12,6 +12,12 @@ const AllFilms = _i1.OperationDefinitionNode(
           type: _i1.NamedTypeNode(
               name: _i1.NameNode(value: 'Int'), isNonNull: false),
           defaultValue: _i1.DefaultValueNode(value: null),
+          directives: []),
+      _i1.VariableDefinitionNode(
+          variable: _i1.VariableNode(name: _i1.NameNode(value: 'after')),
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'String'), isNonNull: false),
+          defaultValue: _i1.DefaultValueNode(value: null),
           directives: [])
     ],
     directives: [],
@@ -22,29 +28,74 @@ const AllFilms = _i1.OperationDefinitionNode(
           arguments: [
             _i1.ArgumentNode(
                 name: _i1.NameNode(value: 'first'),
-                value: _i1.VariableNode(name: _i1.NameNode(value: 'first')))
+                value: _i1.VariableNode(name: _i1.NameNode(value: 'first'))),
+            _i1.ArgumentNode(
+                name: _i1.NameNode(value: 'after'),
+                value: _i1.VariableNode(name: _i1.NameNode(value: 'after')))
           ],
           directives: [],
           selectionSet: _i1.SelectionSetNode(selections: [
             _i1.FieldNode(
-                name: _i1.NameNode(value: 'edges'),
+                name: _i1.NameNode(value: 'films'),
                 alias: null,
                 arguments: [],
                 directives: [],
                 selectionSet: _i1.SelectionSetNode(selections: [
                   _i1.FieldNode(
-                      name: _i1.NameNode(value: 'node'),
+                      name: _i1.NameNode(value: 'id'),
                       alias: null,
                       arguments: [],
                       directives: [],
-                      selectionSet: _i1.SelectionSetNode(selections: [
-                        _i1.FieldNode(
-                            name: _i1.NameNode(value: 'id'),
-                            alias: null,
-                            arguments: [],
-                            directives: [],
-                            selectionSet: null)
-                      ]))
+                      selectionSet: null),
+                  _i1.FieldNode(
+                      name: _i1.NameNode(value: 'director'),
+                      alias: null,
+                      arguments: [],
+                      directives: [],
+                      selectionSet: null),
+                  _i1.FieldNode(
+                      name: _i1.NameNode(value: 'episodeID'),
+                      alias: null,
+                      arguments: [],
+                      directives: [],
+                      selectionSet: null),
+                  _i1.FieldNode(
+                      name: _i1.NameNode(value: 'created'),
+                      alias: null,
+                      arguments: [],
+                      directives: [],
+                      selectionSet: null),
+                  _i1.FieldNode(
+                      name: _i1.NameNode(value: 'title'),
+                      alias: null,
+                      arguments: [],
+                      directives: [],
+                      selectionSet: null),
+                  _i1.FieldNode(
+                      name: _i1.NameNode(value: 'releaseDate'),
+                      alias: null,
+                      arguments: [],
+                      directives: [],
+                      selectionSet: null)
+                ])),
+            _i1.FieldNode(
+                name: _i1.NameNode(value: 'pageInfo'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: _i1.SelectionSetNode(selections: [
+                  _i1.FieldNode(
+                      name: _i1.NameNode(value: 'hasNextPage'),
+                      alias: null,
+                      arguments: [],
+                      directives: [],
+                      selectionSet: null),
+                  _i1.FieldNode(
+                      name: _i1.NameNode(value: 'endCursor'),
+                      alias: null,
+                      arguments: [],
+                      directives: [],
+                      selectionSet: null)
                 ]))
           ]))
     ]));

@@ -6,22 +6,34 @@ import 'package:flutter_ferry_sample/utils/hive_service.dart';
 import 'package:gql_http_link/gql_http_link.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-final ferryServiceProvider = Provider((ref) => FerryService(ref.watch(hiveServiceProvider)));
+final ferryClientProvider = Provider<Client>((ref) {
+  final link = HttpLink('https://swapi-graphql.netlify.app/.netlify/functions/index');
+  return Client(link: link);
+});
+
+final ferryServiceProvider = Provider<FerryService>((ref) {
+  final client = ref.watch(ferryClientProvider);
+  return FerryService(
+    client: client,
+    hiveService: ref.watch(hiveServiceProvider)
+  );
+});
 
 class FerryService {
-  FerryService(this.hiveService) {
-    initClient();
-  }
+  FerryService({
+    required this.client,
+    required this.hiveService
+  });
   final HiveService hiveService;
 
-  late Client client;
+  final Client client;
 
-  Future<void> initClient() async {
+  Future<Client> initClient() async {
     final box = await hiveService.openBox('ferry');
     final store = HiveStore(box);
     final cache = Cache(store: store);
-    final link = HttpLink('https://beta.pokeapi.co/graphql/v1beta');
-    client = Client(link: link, cache: cache);
+    final link = HttpLink('https://swapi-graphql.netlify.app/.netlify/functions/index');
+    return Client(link: link, cache: cache);
   }
 
   Stream<OperationResponse<TData, TVars>> request<TData, TVars>(OperationRequest<TData, TVars> request) {

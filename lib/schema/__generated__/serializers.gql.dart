@@ -8,8 +8,8 @@ import 'package:flutter_ferry_sample/feature/film/graphql/__generated__/all_film
     show
         GAllFilmsData,
         GAllFilmsData_allFilms,
-        GAllFilmsData_allFilms_edges,
-        GAllFilmsData_allFilms_edges_node;
+        GAllFilmsData_allFilms_films,
+        GAllFilmsData_allFilms_pageInfo;
 import 'package:flutter_ferry_sample/feature/film/graphql/__generated__/all_films.req.gql.dart'
     show GAllFilmsReq;
 import 'package:flutter_ferry_sample/feature/film/graphql/__generated__/all_films.var.gql.dart'
@@ -25,8 +25,8 @@ final SerializersBuilder _serializersBuilder = _$serializers.toBuilder()
 @SerializersFor([
   GAllFilmsData,
   GAllFilmsData_allFilms,
-  GAllFilmsData_allFilms_edges,
-  GAllFilmsData_allFilms_edges_node,
+  GAllFilmsData_allFilms_films,
+  GAllFilmsData_allFilms_pageInfo,
   GAllFilmsReq,
   GAllFilmsVars
 ])
