@@ -3,6 +3,6 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../film_model.dart';
 
-final filmListProvider = StreamProvider<List<FilmModel>>((ref) {
+final filmsProvider = StreamProvider<List<FilmModel>>((ref) {
   return ref.watch(filmServiceProvider).filmsStream();
 });

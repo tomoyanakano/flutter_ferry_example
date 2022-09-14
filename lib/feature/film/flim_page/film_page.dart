@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ferry_sample/feature/film/film_list_page/film_list_provider.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../components/error.dart';
 import '../../../components/loading.dart';
 import '../film_model.dart';
+import 'films_provider.dart';
 
 
 /// Fetch Film list from GraphQL API
 /// 
 /// Implement with Repository pattern
 /// Not using Operation Widget and Generated Graphql Result Models
-class FilmListPage extends ConsumerWidget {
-  const FilmListPage({Key? key}) : super(key: key);
+class FilmPage extends ConsumerWidget {
+  const FilmPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final films = ref.watch(filmListProvider);
+    final films = ref.watch(filmsProvider);
     return films.when(
       loading: () => const Loading(),
       error: (error, stackTrace) => ErrorMessage(error, stackTrace: stackTrace), 
