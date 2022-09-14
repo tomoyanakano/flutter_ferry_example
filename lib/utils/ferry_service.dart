@@ -24,4 +24,8 @@ class FerryService {
     client = Client(link: link, cache: cache);
   }
 
+  Stream<OperationResponse<TData, TVars>> request<TData, TVars>(OperationRequest<TData, TVars> request) {
+    return client.request<TData, TVars>(request);
+  }
+
 }
