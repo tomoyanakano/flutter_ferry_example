@@ -1,0 +1,17 @@
+query Planets($after: String, $first: Int) {
+  allPlanets(after: $after, first: $first) {
+    planets {
+      diameter
+      gravity
+      name
+      id
+      population
+      rotationPeriod
+      surfaceWater
+    }
+    pageInfo {
+      endCursor
+      hasNextPage
+    }
+  }
+}

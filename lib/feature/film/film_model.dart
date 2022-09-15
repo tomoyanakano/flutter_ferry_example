@@ -14,6 +14,7 @@ class FilmModel with _$FilmModel {
     @JsonKey(name: 'episodeID') required int episodeId,
     @JsonKey(name: 'releaseDate') required DateTime releasedAt,
   }) = _FilmModel;
-  
-  factory FilmModel.fromJson(Map<String, dynamic> json) => _$FilmModelFromJson(json);
+
+  factory FilmModel.fromJson(Map<String, dynamic> json) =>
+      _$FilmModelFromJson(json);
 }

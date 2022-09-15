@@ -3,7 +3,8 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'film_remote_data_source.dart';
 
-final filmRepositoryProvider = Provider((ref) => FilmRepository(filmRemoteDataSource: ref.watch(filmRemoteDataSourceProvider)));
+final filmRepositoryProvider = Provider((ref) => FilmRepository(
+    filmRemoteDataSource: ref.watch(filmRemoteDataSourceProvider)));
 
 class FilmRepository {
   FilmRepository({
@@ -18,10 +19,12 @@ class FilmRepository {
       if (response.hasErrors) {
         throw Exception('something went wrong');
       }
-      if (response.data == null){
+      if (response.data == null) {
         throw Exception('data was not found');
       }
-      return data!.allFilms!.films!.map((film) => FilmModel.fromJson(film.toJson())).toList();
+      return data!.allFilms!.films!
+          .map((film) => FilmModel.fromJson(film.toJson()))
+          .toList();
     });
-  } 
+  }
 }

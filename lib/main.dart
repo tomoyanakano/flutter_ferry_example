@@ -1,29 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ferry_sample/feature/film/flim_page/film_page.dart';
 import 'package:flutter_ferry_sample/feature/person/people_page/people_page.dart';
+import 'package:flutter_ferry_sample/feature/planets/planets_page/planets_page.dart';
 import 'package:flutter_ferry_sample/utils/ferry_service.dart';
 import 'package:flutter_ferry_sample/utils/hive_service.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import 'feature/film/flims_page/films_page.dart';
+
 void main() async {
   final container = ProviderContainer();
   final hiveService = container.read(hiveServiceProvider);
   final ferryService = container.read(ferryServiceProvider);
-  
+
   /// Initialize HiveFlutter
   await hiveService.init();
 
   /// Initialize Ferry Client
   final client = await ferryService.initClient();
-  
-  runApp(ProviderScope(
-    overrides: [
-      /// Override ferryClientProvider with Client generated asynchronously
-      ferryClientProvider.overrideWithValue(client),
-    ],
-    child: const MyApp()
-  ));
+
+  runApp(ProviderScope(overrides: [
+    /// Override ferryClientProvider with Client generated asynchronously
+    ferryClientProvider.overrideWithValue(client),
+  ], child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -46,18 +45,15 @@ class MyApp extends StatelessWidget {
 class Home extends HookConsumerWidget {
   const Home({Key? key}) : super(key: key);
 
-  final List<Widget> pages = const [
-    FilmPage(),
-    PeoplePage(),
-    Center(child: Text('movie'),),
-    Center(child: Text('movie'),),
-  ];
+  final List<Widget> pages = const [FilmsPage(), PeoplePage(), PlanetsPage()];
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final state = useState(0);
     return Scaffold(
-      appBar: AppBar(title: const Text('Star wars GraphQL'),),
+      appBar: AppBar(
+        title: const Text('Star wars GraphQL'),
+      ),
       body: pages[state.value],
       bottomNavigationBar: NavigationBar(
         selectedIndex: state.value,
@@ -74,14 +70,9 @@ class Home extends HookConsumerWidget {
             label: 'people',
           ),
           NavigationDestination(
-            icon: Icon(Icons.movie_outlined),
-            selectedIcon: Icon(Icons.movie),
-            label: 'movie',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.movie_outlined),
-            selectedIcon: Icon(Icons.movie),
-            label: 'movie',
+            icon: Icon(Icons.brightness_2_outlined),
+            selectedIcon: Icon(Icons.brightness_2),
+            label: 'plannets',
           ),
         ],
       ),

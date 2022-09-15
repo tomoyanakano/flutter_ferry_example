@@ -1,22 +1,21 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'all_films.var.gql.dart';
+part of 'films.var.gql.dart';
 
 // **************************************************************************
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<GAllFilmsVars> _$gAllFilmsVarsSerializer =
-    new _$GAllFilmsVarsSerializer();
+Serializer<GFilmsVars> _$gFilmsVarsSerializer = new _$GFilmsVarsSerializer();
 
-class _$GAllFilmsVarsSerializer implements StructuredSerializer<GAllFilmsVars> {
+class _$GFilmsVarsSerializer implements StructuredSerializer<GFilmsVars> {
   @override
-  final Iterable<Type> types = const [GAllFilmsVars, _$GAllFilmsVars];
+  final Iterable<Type> types = const [GFilmsVars, _$GFilmsVars];
   @override
-  final String wireName = 'GAllFilmsVars';
+  final String wireName = 'GFilmsVars';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, GAllFilmsVars object,
+  Iterable<Object?> serialize(Serializers serializers, GFilmsVars object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[];
     Object? value;
@@ -37,10 +36,9 @@ class _$GAllFilmsVarsSerializer implements StructuredSerializer<GAllFilmsVars> {
   }
 
   @override
-  GAllFilmsVars deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  GFilmsVars deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new GAllFilmsVarsBuilder();
+    final result = new GFilmsVarsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -63,30 +61,28 @@ class _$GAllFilmsVarsSerializer implements StructuredSerializer<GAllFilmsVars> {
   }
 }
 
-class _$GAllFilmsVars extends GAllFilmsVars {
+class _$GFilmsVars extends GFilmsVars {
   @override
   final int? first;
   @override
   final String? after;
 
-  factory _$GAllFilmsVars([void Function(GAllFilmsVarsBuilder)? updates]) =>
-      (new GAllFilmsVarsBuilder()..update(updates))._build();
+  factory _$GFilmsVars([void Function(GFilmsVarsBuilder)? updates]) =>
+      (new GFilmsVarsBuilder()..update(updates))._build();
 
-  _$GAllFilmsVars._({this.first, this.after}) : super._();
+  _$GFilmsVars._({this.first, this.after}) : super._();
 
   @override
-  GAllFilmsVars rebuild(void Function(GAllFilmsVarsBuilder) updates) =>
+  GFilmsVars rebuild(void Function(GFilmsVarsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GAllFilmsVarsBuilder toBuilder() => new GAllFilmsVarsBuilder()..replace(this);
+  GFilmsVarsBuilder toBuilder() => new GFilmsVarsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is GAllFilmsVars &&
-        first == other.first &&
-        after == other.after;
+    return other is GFilmsVars && first == other.first && after == other.after;
   }
 
   @override
@@ -96,16 +92,15 @@ class _$GAllFilmsVars extends GAllFilmsVars {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'GAllFilmsVars')
+    return (newBuiltValueToStringHelper(r'GFilmsVars')
           ..add('first', first)
           ..add('after', after))
         .toString();
   }
 }
 
-class GAllFilmsVarsBuilder
-    implements Builder<GAllFilmsVars, GAllFilmsVarsBuilder> {
-  _$GAllFilmsVars? _$v;
+class GFilmsVarsBuilder implements Builder<GFilmsVars, GFilmsVarsBuilder> {
+  _$GFilmsVars? _$v;
 
   int? _first;
   int? get first => _$this._first;
@@ -115,9 +110,9 @@ class GAllFilmsVarsBuilder
   String? get after => _$this._after;
   set after(String? after) => _$this._after = after;
 
-  GAllFilmsVarsBuilder();
+  GFilmsVarsBuilder();
 
-  GAllFilmsVarsBuilder get _$this {
+  GFilmsVarsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _first = $v.first;
@@ -128,21 +123,21 @@ class GAllFilmsVarsBuilder
   }
 
   @override
-  void replace(GAllFilmsVars other) {
+  void replace(GFilmsVars other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$GAllFilmsVars;
+    _$v = other as _$GFilmsVars;
   }
 
   @override
-  void update(void Function(GAllFilmsVarsBuilder)? updates) {
+  void update(void Function(GFilmsVarsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  GAllFilmsVars build() => _build();
+  GFilmsVars build() => _build();
 
-  _$GAllFilmsVars _build() {
-    final _$result = _$v ?? new _$GAllFilmsVars._(first: first, after: after);
+  _$GFilmsVars _build() {
+    final _$result = _$v ?? new _$GFilmsVars._(first: first, after: after);
     replace(_$result);
     return _$result;
   }

@@ -1,27 +1,26 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'all_films.req.gql.dart';
+part of 'films.req.gql.dart';
 
 // **************************************************************************
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<GAllFilmsReq> _$gAllFilmsReqSerializer =
-    new _$GAllFilmsReqSerializer();
+Serializer<GFilmsReq> _$gFilmsReqSerializer = new _$GFilmsReqSerializer();
 
-class _$GAllFilmsReqSerializer implements StructuredSerializer<GAllFilmsReq> {
+class _$GFilmsReqSerializer implements StructuredSerializer<GFilmsReq> {
   @override
-  final Iterable<Type> types = const [GAllFilmsReq, _$GAllFilmsReq];
+  final Iterable<Type> types = const [GFilmsReq, _$GFilmsReq];
   @override
-  final String wireName = 'GAllFilmsReq';
+  final String wireName = 'GFilmsReq';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, GAllFilmsReq object,
+  Iterable<Object?> serialize(Serializers serializers, GFilmsReq object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'vars',
       serializers.serialize(object.vars,
-          specifiedType: const FullType(_i3.GAllFilmsVars)),
+          specifiedType: const FullType(_i3.GFilmsVars)),
       'operation',
       serializers.serialize(object.operation,
           specifiedType: const FullType(_i4.Operation)),
@@ -42,7 +41,7 @@ class _$GAllFilmsReqSerializer implements StructuredSerializer<GAllFilmsReq> {
       result
         ..add('optimisticResponse')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(_i2.GAllFilmsData)));
+            specifiedType: const FullType(_i2.GFilmsData)));
     }
     value = object.updateCacheHandlerKey;
     if (value != null) {
@@ -70,10 +69,9 @@ class _$GAllFilmsReqSerializer implements StructuredSerializer<GAllFilmsReq> {
   }
 
   @override
-  GAllFilmsReq deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  GFilmsReq deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new GAllFilmsReqBuilder();
+    final result = new GFilmsReqBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -83,8 +81,8 @@ class _$GAllFilmsReqSerializer implements StructuredSerializer<GAllFilmsReq> {
       switch (key) {
         case 'vars':
           result.vars.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(_i3.GAllFilmsVars))!
-              as _i3.GAllFilmsVars);
+                  specifiedType: const FullType(_i3.GFilmsVars))!
+              as _i3.GFilmsVars);
           break;
         case 'operation':
           result.operation = serializers.deserialize(value,
@@ -96,8 +94,8 @@ class _$GAllFilmsReqSerializer implements StructuredSerializer<GAllFilmsReq> {
           break;
         case 'optimisticResponse':
           result.optimisticResponse.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(_i2.GAllFilmsData))!
-              as _i2.GAllFilmsData);
+                  specifiedType: const FullType(_i2.GFilmsData))!
+              as _i2.GFilmsData);
           break;
         case 'updateCacheHandlerKey':
           result.updateCacheHandlerKey = serializers.deserialize(value,
@@ -126,18 +124,18 @@ class _$GAllFilmsReqSerializer implements StructuredSerializer<GAllFilmsReq> {
   }
 }
 
-class _$GAllFilmsReq extends GAllFilmsReq {
+class _$GFilmsReq extends GFilmsReq {
   @override
-  final _i3.GAllFilmsVars vars;
+  final _i3.GFilmsVars vars;
   @override
   final _i4.Operation operation;
   @override
   final String? requestId;
   @override
-  final _i2.GAllFilmsData? Function(_i2.GAllFilmsData?, _i2.GAllFilmsData?)?
+  final _i2.GFilmsData? Function(_i2.GFilmsData?, _i2.GFilmsData?)?
       updateResult;
   @override
-  final _i2.GAllFilmsData? optimisticResponse;
+  final _i2.GFilmsData? optimisticResponse;
   @override
   final String? updateCacheHandlerKey;
   @override
@@ -147,10 +145,10 @@ class _$GAllFilmsReq extends GAllFilmsReq {
   @override
   final bool executeOnListen;
 
-  factory _$GAllFilmsReq([void Function(GAllFilmsReqBuilder)? updates]) =>
-      (new GAllFilmsReqBuilder()..update(updates))._build();
+  factory _$GFilmsReq([void Function(GFilmsReqBuilder)? updates]) =>
+      (new GFilmsReqBuilder()..update(updates))._build();
 
-  _$GAllFilmsReq._(
+  _$GFilmsReq._(
       {required this.vars,
       required this.operation,
       this.requestId,
@@ -161,25 +159,24 @@ class _$GAllFilmsReq extends GAllFilmsReq {
       this.fetchPolicy,
       required this.executeOnListen})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(vars, r'GAllFilmsReq', 'vars');
+    BuiltValueNullFieldError.checkNotNull(vars, r'GFilmsReq', 'vars');
+    BuiltValueNullFieldError.checkNotNull(operation, r'GFilmsReq', 'operation');
     BuiltValueNullFieldError.checkNotNull(
-        operation, r'GAllFilmsReq', 'operation');
-    BuiltValueNullFieldError.checkNotNull(
-        executeOnListen, r'GAllFilmsReq', 'executeOnListen');
+        executeOnListen, r'GFilmsReq', 'executeOnListen');
   }
 
   @override
-  GAllFilmsReq rebuild(void Function(GAllFilmsReqBuilder) updates) =>
+  GFilmsReq rebuild(void Function(GFilmsReqBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GAllFilmsReqBuilder toBuilder() => new GAllFilmsReqBuilder()..replace(this);
+  GFilmsReqBuilder toBuilder() => new GFilmsReqBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     final dynamic _$dynamicOther = other;
-    return other is GAllFilmsReq &&
+    return other is GFilmsReq &&
         vars == other.vars &&
         operation == other.operation &&
         requestId == other.requestId &&
@@ -211,7 +208,7 @@ class _$GAllFilmsReq extends GAllFilmsReq {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'GAllFilmsReq')
+    return (newBuiltValueToStringHelper(r'GFilmsReq')
           ..add('vars', vars)
           ..add('operation', operation)
           ..add('requestId', requestId)
@@ -225,14 +222,13 @@ class _$GAllFilmsReq extends GAllFilmsReq {
   }
 }
 
-class GAllFilmsReqBuilder
-    implements Builder<GAllFilmsReq, GAllFilmsReqBuilder> {
-  _$GAllFilmsReq? _$v;
+class GFilmsReqBuilder implements Builder<GFilmsReq, GFilmsReqBuilder> {
+  _$GFilmsReq? _$v;
 
-  _i3.GAllFilmsVarsBuilder? _vars;
-  _i3.GAllFilmsVarsBuilder get vars =>
-      _$this._vars ??= new _i3.GAllFilmsVarsBuilder();
-  set vars(_i3.GAllFilmsVarsBuilder? vars) => _$this._vars = vars;
+  _i3.GFilmsVarsBuilder? _vars;
+  _i3.GFilmsVarsBuilder get vars =>
+      _$this._vars ??= new _i3.GFilmsVarsBuilder();
+  set vars(_i3.GFilmsVarsBuilder? vars) => _$this._vars = vars;
 
   _i4.Operation? _operation;
   _i4.Operation? get operation => _$this._operation;
@@ -242,19 +238,18 @@ class GAllFilmsReqBuilder
   String? get requestId => _$this._requestId;
   set requestId(String? requestId) => _$this._requestId = requestId;
 
-  _i2.GAllFilmsData? Function(_i2.GAllFilmsData?, _i2.GAllFilmsData?)?
-      _updateResult;
-  _i2.GAllFilmsData? Function(_i2.GAllFilmsData?, _i2.GAllFilmsData?)?
+  _i2.GFilmsData? Function(_i2.GFilmsData?, _i2.GFilmsData?)? _updateResult;
+  _i2.GFilmsData? Function(_i2.GFilmsData?, _i2.GFilmsData?)?
       get updateResult => _$this._updateResult;
   set updateResult(
-          _i2.GAllFilmsData? Function(_i2.GAllFilmsData?, _i2.GAllFilmsData?)?
+          _i2.GFilmsData? Function(_i2.GFilmsData?, _i2.GFilmsData?)?
               updateResult) =>
       _$this._updateResult = updateResult;
 
-  _i2.GAllFilmsDataBuilder? _optimisticResponse;
-  _i2.GAllFilmsDataBuilder get optimisticResponse =>
-      _$this._optimisticResponse ??= new _i2.GAllFilmsDataBuilder();
-  set optimisticResponse(_i2.GAllFilmsDataBuilder? optimisticResponse) =>
+  _i2.GFilmsDataBuilder? _optimisticResponse;
+  _i2.GFilmsDataBuilder get optimisticResponse =>
+      _$this._optimisticResponse ??= new _i2.GFilmsDataBuilder();
+  set optimisticResponse(_i2.GFilmsDataBuilder? optimisticResponse) =>
       _$this._optimisticResponse = optimisticResponse;
 
   String? _updateCacheHandlerKey;
@@ -279,11 +274,11 @@ class GAllFilmsReqBuilder
   set executeOnListen(bool? executeOnListen) =>
       _$this._executeOnListen = executeOnListen;
 
-  GAllFilmsReqBuilder() {
-    GAllFilmsReq._initializeBuilder(this);
+  GFilmsReqBuilder() {
+    GFilmsReq._initializeBuilder(this);
   }
 
-  GAllFilmsReqBuilder get _$this {
+  GFilmsReqBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _vars = $v.vars.toBuilder();
@@ -301,27 +296,27 @@ class GAllFilmsReqBuilder
   }
 
   @override
-  void replace(GAllFilmsReq other) {
+  void replace(GFilmsReq other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$GAllFilmsReq;
+    _$v = other as _$GFilmsReq;
   }
 
   @override
-  void update(void Function(GAllFilmsReqBuilder)? updates) {
+  void update(void Function(GFilmsReqBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  GAllFilmsReq build() => _build();
+  GFilmsReq build() => _build();
 
-  _$GAllFilmsReq _build() {
-    _$GAllFilmsReq _$result;
+  _$GFilmsReq _build() {
+    _$GFilmsReq _$result;
     try {
       _$result = _$v ??
-          new _$GAllFilmsReq._(
+          new _$GFilmsReq._(
               vars: vars.build(),
               operation: BuiltValueNullFieldError.checkNotNull(
-                  operation, r'GAllFilmsReq', 'operation'),
+                  operation, r'GFilmsReq', 'operation'),
               requestId: requestId,
               updateResult: updateResult,
               optimisticResponse: _optimisticResponse?.build(),
@@ -329,7 +324,7 @@ class GAllFilmsReqBuilder
               updateCacheHandlerContext: updateCacheHandlerContext,
               fetchPolicy: fetchPolicy,
               executeOnListen: BuiltValueNullFieldError.checkNotNull(
-                  executeOnListen, r'GAllFilmsReq', 'executeOnListen'));
+                  executeOnListen, r'GFilmsReq', 'executeOnListen'));
     } catch (_) {
       late String _$failedField;
       try {
@@ -340,7 +335,7 @@ class GAllFilmsReqBuilder
         _optimisticResponse?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'GAllFilmsReq', _$failedField, e.toString());
+            r'GFilmsReq', _$failedField, e.toString());
       }
       rethrow;
     }

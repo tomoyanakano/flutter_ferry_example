@@ -1,4 +1,4 @@
-query AllFilms($first: Int, $after: String) {
+query Films($first: Int, $after: String) {
   allFilms(first: $first, after: $after) {
     films {
       id

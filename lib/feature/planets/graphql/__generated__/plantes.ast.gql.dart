@@ -3,44 +3,62 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:gql/ast.dart' as _i1;
 
-const AllFilms = _i1.OperationDefinitionNode(
+const Planets = _i1.OperationDefinitionNode(
     type: _i1.OperationType.query,
-    name: _i1.NameNode(value: 'AllFilms'),
+    name: _i1.NameNode(value: 'Planets'),
     variableDefinitions: [
-      _i1.VariableDefinitionNode(
-          variable: _i1.VariableNode(name: _i1.NameNode(value: 'first')),
-          type: _i1.NamedTypeNode(
-              name: _i1.NameNode(value: 'Int'), isNonNull: false),
-          defaultValue: _i1.DefaultValueNode(value: null),
-          directives: []),
       _i1.VariableDefinitionNode(
           variable: _i1.VariableNode(name: _i1.NameNode(value: 'after')),
           type: _i1.NamedTypeNode(
               name: _i1.NameNode(value: 'String'), isNonNull: false),
+          defaultValue: _i1.DefaultValueNode(value: null),
+          directives: []),
+      _i1.VariableDefinitionNode(
+          variable: _i1.VariableNode(name: _i1.NameNode(value: 'first')),
+          type: _i1.NamedTypeNode(
+              name: _i1.NameNode(value: 'Int'), isNonNull: false),
           defaultValue: _i1.DefaultValueNode(value: null),
           directives: [])
     ],
     directives: [],
     selectionSet: _i1.SelectionSetNode(selections: [
       _i1.FieldNode(
-          name: _i1.NameNode(value: 'allFilms'),
+          name: _i1.NameNode(value: 'allPlanets'),
           alias: null,
           arguments: [
             _i1.ArgumentNode(
-                name: _i1.NameNode(value: 'first'),
-                value: _i1.VariableNode(name: _i1.NameNode(value: 'first'))),
-            _i1.ArgumentNode(
                 name: _i1.NameNode(value: 'after'),
-                value: _i1.VariableNode(name: _i1.NameNode(value: 'after')))
+                value: _i1.VariableNode(name: _i1.NameNode(value: 'after'))),
+            _i1.ArgumentNode(
+                name: _i1.NameNode(value: 'first'),
+                value: _i1.VariableNode(name: _i1.NameNode(value: 'first')))
           ],
           directives: [],
           selectionSet: _i1.SelectionSetNode(selections: [
             _i1.FieldNode(
-                name: _i1.NameNode(value: 'films'),
+                name: _i1.NameNode(value: 'planets'),
                 alias: null,
                 arguments: [],
                 directives: [],
                 selectionSet: _i1.SelectionSetNode(selections: [
+                  _i1.FieldNode(
+                      name: _i1.NameNode(value: 'diameter'),
+                      alias: null,
+                      arguments: [],
+                      directives: [],
+                      selectionSet: null),
+                  _i1.FieldNode(
+                      name: _i1.NameNode(value: 'gravity'),
+                      alias: null,
+                      arguments: [],
+                      directives: [],
+                      selectionSet: null),
+                  _i1.FieldNode(
+                      name: _i1.NameNode(value: 'name'),
+                      alias: null,
+                      arguments: [],
+                      directives: [],
+                      selectionSet: null),
                   _i1.FieldNode(
                       name: _i1.NameNode(value: 'id'),
                       alias: null,
@@ -48,31 +66,38 @@ const AllFilms = _i1.OperationDefinitionNode(
                       directives: [],
                       selectionSet: null),
                   _i1.FieldNode(
-                      name: _i1.NameNode(value: 'director'),
+                      name: _i1.NameNode(value: 'population'),
                       alias: null,
                       arguments: [],
                       directives: [],
                       selectionSet: null),
                   _i1.FieldNode(
-                      name: _i1.NameNode(value: 'episodeID'),
+                      name: _i1.NameNode(value: 'rotationPeriod'),
                       alias: null,
                       arguments: [],
                       directives: [],
                       selectionSet: null),
                   _i1.FieldNode(
-                      name: _i1.NameNode(value: 'created'),
+                      name: _i1.NameNode(value: 'surfaceWater'),
+                      alias: null,
+                      arguments: [],
+                      directives: [],
+                      selectionSet: null)
+                ])),
+            _i1.FieldNode(
+                name: _i1.NameNode(value: 'pageInfo'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: _i1.SelectionSetNode(selections: [
+                  _i1.FieldNode(
+                      name: _i1.NameNode(value: 'endCursor'),
                       alias: null,
                       arguments: [],
                       directives: [],
                       selectionSet: null),
                   _i1.FieldNode(
-                      name: _i1.NameNode(value: 'title'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null),
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'releaseDate'),
+                      name: _i1.NameNode(value: 'hasNextPage'),
                       alias: null,
                       arguments: [],
                       directives: [],
@@ -80,4 +105,4 @@ const AllFilms = _i1.OperationDefinitionNode(
                 ]))
           ]))
     ]));
-const document = _i1.DocumentNode(definitions: [AllFilms]);
+const document = _i1.DocumentNode(definitions: [Planets]);
