@@ -14,31 +14,9 @@ class PlanetRepository {
   Stream<List<PlanetModel>> planetsStream({
     required int first,
     required String requestId,
-  }) {
-    final stream = planetRemoteDataSource.planetsStream(
-      first: first,
-      requestId: requestId,
-    );
-    return stream.map((response) {
-      final data = response.data;
-      if (response.hasErrors) {
-        throw Exception('something went wrong');
-      }
-      if (response.data == null) {
-        throw Exception('data was not found');
-      }
-      return data!.allPlanets!.planets!
-          .map((planet) => PlanetModel.fromJson(planet.toJson()))
-          .toList();
-    });
-  }
-
-  Stream<List<PlanetModel>> planetsNextStream({
-    required int first,
-    required String requestId,
     required String? after,
   }) {
-    final stream = planetRemoteDataSource.planetsNextStream(
+    final stream = planetRemoteDataSource.planetsStream(
       first: first,
       requestId: requestId,
       after: after,

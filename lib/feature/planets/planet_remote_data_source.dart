@@ -17,16 +17,6 @@ class PlanetRemoteDataSource {
 
   Stream<OperationResponse<GPlanetsData, GPlanetsVars>> planetsStream({
     required int first,
-    required String requestId,
-  }) {
-    final request = GPlanetsReq((b) => b
-      ..requestId = requestId
-      ..vars.first = 10);
-    return ferryService.request<GPlanetsData, GPlanetsVars>(request);
-  }
-
-  Stream<OperationResponse<GPlanetsData, GPlanetsVars>> planetsNextStream({
-    required int first,
     required String? after,
     required String requestId,
   }) {

@@ -81,16 +81,17 @@ class _Person extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-        child: Container(
-      padding: const EdgeInsets.all(10),
-      child: ListTile(
-        leading: const Icon(Icons.person),
-        title: Text(
-          person.name!,
-          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+      child: Container(
+        padding: const EdgeInsets.all(10),
+        child: ListTile(
+          leading: const Icon(Icons.person),
+          title: Text(
+            person.name!,
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+          ),
+          subtitle: Text('gender:${person.gender}'),
         ),
-        subtitle: Text('gender:${person.gender}'),
       ),
-    ));
+    );
   }
 }

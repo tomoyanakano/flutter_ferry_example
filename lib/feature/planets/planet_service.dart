@@ -14,15 +14,9 @@ class PlanetService {
   Stream<List<PlanetModel>> planetsStream({
     int first = 10,
     String requestId = 'planets',
-  }) =>
-      planetRepository.planetsStream(first: first, requestId: requestId);
-
-  Stream<List<PlanetModel>> planetsNextStream({
-    int first = 10,
-    String requestId = 'planets',
     String? after,
   }) =>
-      planetRepository.planetsNextStream(
+      planetRepository.planetsStream(
         first: first,
         requestId: requestId,
         after: after,
