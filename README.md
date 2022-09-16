@@ -15,6 +15,7 @@ Flutter Star Wars App build with [ferry](https://pub.dev/packages/ferry)
 ### Dependencies
 
 - [ferry](https://pub.dev/packages/ferry)
+- [ferry_flutter](https://pub.dev/packages/ferry_flutter)
 - [ferry_hive_store](https://pub.dev/packages/ferry_hive_store)
 - [flutter_hooks](https://pub.dev/packages/flutter_hooks)
 - [gql_http_link](https://pub.dev/packages/gql_http_link)
