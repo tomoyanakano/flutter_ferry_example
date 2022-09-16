@@ -1,4 +1,4 @@
-# flutter_ferry_sample
+# flutter_ferry_example
 Flutter Star Wars App build with [ferry](https://pub.dev/packages/ferry)
 
 
