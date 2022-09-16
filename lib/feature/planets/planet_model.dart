@@ -9,7 +9,7 @@ part 'planet_model.g.dart';
 class PlanetModel with _$PlanetModel {
   const factory PlanetModel({
     required String id,
-    required int diameter,
+    required int? diameter,
     required String name,
     required double? surfaceWater,
     required String gravity,

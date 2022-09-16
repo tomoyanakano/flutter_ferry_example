@@ -21,7 +21,7 @@ PlanetModel _$PlanetModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$PlanetModel {
   String get id => throw _privateConstructorUsedError;
-  int get diameter => throw _privateConstructorUsedError;
+  int? get diameter => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   double? get surfaceWater => throw _privateConstructorUsedError;
   String get gravity => throw _privateConstructorUsedError;
@@ -41,7 +41,7 @@ abstract class $PlanetModelCopyWith<$Res> {
       _$PlanetModelCopyWithImpl<$Res>;
   $Res call(
       {String id,
-      int diameter,
+      int? diameter,
       String name,
       double? surfaceWater,
       String gravity,
@@ -75,7 +75,7 @@ class _$PlanetModelCopyWithImpl<$Res> implements $PlanetModelCopyWith<$Res> {
       diameter: diameter == freezed
           ? _value.diameter
           : diameter // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -109,7 +109,7 @@ abstract class _$$_PlanetModelCopyWith<$Res>
   @override
   $Res call(
       {String id,
-      int diameter,
+      int? diameter,
       String name,
       double? surfaceWater,
       String gravity,
@@ -145,7 +145,7 @@ class __$$_PlanetModelCopyWithImpl<$Res> extends _$PlanetModelCopyWithImpl<$Res>
       diameter: diameter == freezed
           ? _value.diameter
           : diameter // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -188,7 +188,7 @@ class _$_PlanetModel with DiagnosticableTreeMixin implements _PlanetModel {
   @override
   final String id;
   @override
-  final int diameter;
+  final int? diameter;
   @override
   final String name;
   @override
@@ -264,7 +264,7 @@ class _$_PlanetModel with DiagnosticableTreeMixin implements _PlanetModel {
 abstract class _PlanetModel implements PlanetModel {
   const factory _PlanetModel(
       {required final String id,
-      required final int diameter,
+      required final int? diameter,
       required final String name,
       required final double? surfaceWater,
       required final String gravity,
@@ -277,7 +277,7 @@ abstract class _PlanetModel implements PlanetModel {
   @override
   String get id;
   @override
-  int get diameter;
+  int? get diameter;
   @override
   String get name;
   @override

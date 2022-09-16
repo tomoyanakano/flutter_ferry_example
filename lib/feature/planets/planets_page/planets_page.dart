@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ferry_sample/components/error.dart';
 import 'package:flutter_ferry_sample/components/loading.dart';
-import 'package:flutter_ferry_sample/feature/planets/planets_page/planets_page_controller.dart';
+import 'package:flutter_ferry_sample/feature/planets/planets_page/planets_provider.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:lazy_load_scrollview/lazy_load_scrollview.dart';
 
@@ -12,17 +12,21 @@ class PlanetsPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final planets = ref.watch(planetsProvider(null));
-    return planets.when(
+    final page = ref.watch(planetsProvider(null));
+    return page.when(
       loading: () => const Loading(),
       error: (error, stackTrace) => ErrorMessage(error, stackTrace: stackTrace),
-      data: (planets) {
+      data: (page) {
         return LazyLoadScrollView(
-          onEndOfPage: () => ref.refresh(planetsProvider('stest')),
+          onEndOfPage: () {
+            if (page.pageInfo.hasNextPage) {
+              ref.refresh(planetsProvider(page.pageInfo.endCursor));
+            }
+          },
           child: ListView.builder(
             padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
-            itemCount: planets.length,
-            itemBuilder: (context, index) => _Planet(planets[index]),
+            itemCount: page.data.length,
+            itemBuilder: (context, index) => _Planet(page.data[index]),
           ),
         );
       },

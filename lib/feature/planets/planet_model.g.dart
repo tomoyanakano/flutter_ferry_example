@@ -9,7 +9,7 @@ part of 'planet_model.dart';
 _$_PlanetModel _$$_PlanetModelFromJson(Map<String, dynamic> json) =>
     _$_PlanetModel(
       id: json['id'] as String,
-      diameter: json['diameter'] as int,
+      diameter: json['diameter'] as int?,
       name: json['name'] as String,
       surfaceWater: (json['surfaceWater'] as num?)?.toDouble(),
       gravity: json['gravity'] as String,
