@@ -32,4 +32,4 @@ Flutter Star Wars App build with [ferry](https://pub.dev/packages/ferry)
 ### screenshot
 | Films | People | Planets |
 | ----- | ------ | ------- |
-| ![Demo](https://gyazo.com/4a9aa8b8405f021f5d585fed77d074fd) | ![Demo](https://gyazo.com/9e4b3c3871df8f2aa2171dee246076ba) | ![Demo](https://gyazo.com/ba33e02ba73cbf49c6b302e0a9e0a645) |
+| ![Demo](https://gyazo.com/4a9aa8b8405f021f5d585fed77d074fd/raw) | ![Demo](https://gyazo.com/9e4b3c3871df8f2aa2171dee246076ba/raw) | ![Demo](https://gyazo.com/ba33e02ba73cbf49c6b302e0a9e0a645/raw) |
