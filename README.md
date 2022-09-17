@@ -4,7 +4,7 @@ Flutter Star Wars App build with [ferry](https://pub.dev/packages/ferry)
 
 # endpoint
 
-| Endpoind         |  star wars swapi       |
+|         |  star wars swapi       |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Document | https://studio.apollographql.com/public/star-wars-swapi/ |
 | Endpoint | https://swapi-graphql.netlify.app/.netlify/functions/index |
